@@ -18,7 +18,7 @@ exec('joe ls', (exception, output, error) => {
       return acc
     }, {})
 
-  app.listen(process.env.PORT, process.env.HOST, () => {
+  app.listen(process.env.PORT || 8080, process.env.HOST || 'localhost', () => {
     console.log(
       'started server on ' + process.env.HOST + ':' + process.env.PORT,
       supported
