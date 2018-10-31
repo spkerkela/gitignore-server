@@ -18,10 +18,9 @@ exec('joe ls', (exception, output, error) => {
       return acc
     }, {})
 
-  app.listen(process.env.PORT || 8080, process.env.HOST || 'localhost', () => {
+  app.listen(process.env.PORT || 8090, process.env.HOST || 'localhost', () => {
     console.log(
-      'started server on ' + process.env.HOST + ':' + process.env.PORT,
-      supported
+      'started server on ' + process.env.HOST + ':' + process.env.PORT
     )
   })
 
@@ -32,9 +31,9 @@ exec('joe ls', (exception, output, error) => {
       res.sendStatus(404)
     }
   })
-  app.get('/:lang', (req, res) => {
+  app.get('/templates/:lang', (req, res) => {
     if (supported[req.params.lang]) {
-      res.send(supported[req.query.lang])
+      res.send(supported[req.params.lang])
     } else {
       res.sendStatus(404)
     }
